@@ -7,14 +7,6 @@ library(MASS)
 library(ModelMetrics)
 library(data.table)
 
-#ggplot(data=bank, aes(x=Age)) +
-#  geom_histogram(aes(y=after_stat(density)),fill="orange", binwidth = 1) +
-#  geom_density(color="blue", size=0.8)
-
-#ggplot(data=bank) +
-#  geom_boxplot(data=bank, aes(x=, y=Personal.Loan)) +
-#  facet_grid()
-#  geom_boxplot(aes(x=Age, y=Personal.Loan))
 
 
 
