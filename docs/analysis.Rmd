@@ -9,20 +9,32 @@ library(tidyverse)
 library(ModelMetrics)
 library(stats)
 library(tree)
+library(BankLoanPackage)
 ```
+
+***Introduction***
+
+  I chose this sample because I was curious about the intricacies of how banks approve different loans for different types of people. Above all, I had hoped to learn what the most important aspects of someone's banking information relates to 
+
 
 
 
 ```{r}
-library(BankLoanPackage)
+lda.fit <- lda(Personal.Loan~Income, data=bank.train)
 
-ggplot(data=bank, aes(x=Age)) +
-  geom_histogram(aes(y=after_stat(density)),fill="orange", binwidth = 1) +
-  geom_density(color="blue", size=0.8)
-
-ggplot(data=bank) +
-  geom_boxplot(data=bank, aes(x=, y=Personal.Loan)) +
-  facet_grid()
-  geom_boxplot(aes(x=Age, y=Personal.Loan))
-
+projected <- as.matrix(bank.train$Income) %*% as.matrix(lda.fit$scaling)
+ldahist(projected, bank.train$Personal.Loan, xlab="")
 ```
+
+
+```{r}
+bank %>%
+  select(-c(CreditCard,CD.Account,Education,Family,Online,Securities.Account,ZIP.Code))%>%
+  gather(-Personal.Loan, key = "some_var_name", value = "Numeric_Variables") %>%
+  ggplot(aes(x = Numeric_Variables, y = Personal.Loan)) +
+    geom_boxplot() +
+    facet_wrap(~ some_var_name, scales = "free")
+```
+
+
+

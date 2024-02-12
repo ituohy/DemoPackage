@@ -4,16 +4,18 @@ library(rstudioapi)
 setwd(dirname(getActiveDocumentContext()$path))
 
 # Load in data
-bank <- read.csv("bankloan.csv")
+BankLoan <- read.csv("bankloan.csv")
 
 # Remove ID Column
-bank <- subset(bank, select = -c(ID, Experience))
+BankLoan <- subset(BankLoan, select = -c(ID, Experience))
 
 # Clean data types
-bank$CreditCard <- as.factor(bank$CreditCard)
-bank$Online <- as.factor(bank$Online)
-bank$CD.Account <- as.factor(bank$CD.Account)
-bank$Securities.Account <- as.factor(bank$Securities.Account)
-bank$Personal.Loan <- as.factor(bank$Personal.Loan)
-bank$Education <- as.factor(bank$Education)
-bank$Family <- as.factor(bank$Family)
+BankLoan$CreditCard <- as.factor(BankLoan$CreditCard)
+BankLoan$Online <- as.factor(BankLoan$Online)
+BankLoan$CD.Account <- as.factor(BankLoan$CD.Account)
+BankLoan$Securities.Account <- as.factor(BankLoan$Securities.Account)
+BankLoan$Personal.Loan <- as.factor(BankLoan$Personal.Loan)
+BankLoan$Education <- as.factor(BankLoan$Education)
+BankLoan$Family <- as.factor(BankLoan$Family)
+
+usethis::use_data(BankLoan)
