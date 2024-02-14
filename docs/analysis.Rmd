@@ -6,6 +6,7 @@ output:
   pdf_document: default
   html_document: default
 ---
+\fontsize{14}{24}
 ```{r setup, include=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
@@ -21,9 +22,16 @@ library(BankLoanPackage)
 library(MASS)
 ```
 
+
+
+
 ***Introduction***
 
   I chose this sample because I was curious about the intricacies of how banks approve different loans for different types of people. Above all, I had hoped to learn what the most important aspects of someone's banking information that a bank takes into account for approving a loan. When a bank decides to approve a loan, they want to make sure they'll make that money back, and so I'm seeing these different aspects as what makes a customer "trustworthy" to a bank. I think this is what makes this an interesting dataset.
+  
+  
+  
+  
   
 ***Data Cleaning***
 
